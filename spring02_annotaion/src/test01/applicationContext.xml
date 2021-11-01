@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- 아래의 namespace에서 context 추가해줌 -->
+	<!--component-scan은 component 어노테이션을 붙임으로써 선언!-->
+	<!--id는 클래스명 따라감  -->
+	
+	<bean id="wheel" class="test01.Wheel">
+		<property name="radius" value="5"/>
+	</bean>
+	<!-- <bean id="wheel2" class="test01.Wheel">
+		<property name="radius" value="20"/>
+	</bean>  -->
+	<bean id="wheel2" class="test01.Wheel">
+		<constructor-arg name="radius" value="100"/>
+	</bean>
+	<!-- base-package에는 루트 패키지 명을 작성해줌. 그 아래 모든 패키지에 대해서 스프링이 컴포넌트 스캔 작업에 들어감  -->
+	<!-- @Component 를 붙임으로써 component-scan이 찾을 수 있음 -->
+	<context:component-scan base-package="test01"/>
+
+</beans>
