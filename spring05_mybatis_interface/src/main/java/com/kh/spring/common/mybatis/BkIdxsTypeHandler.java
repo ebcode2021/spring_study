@@ -20,7 +20,7 @@ public class BkIdxsTypeHandler extends BaseTypeHandler {
 		ArrayDescriptor descriptor = 
 				ArrayDescriptor.createDescriptor("BK_IDXS", ps.getConnection());
 		
-		List<String> bkIdxs = (List<String>)parameter;
+		List<String> bkIdxs = (List<String>)parameter; //check github
 		ARRAY bkIdxArr = new ARRAY(descriptor, ps.getConnection(),bkIdxs.toArray());
 		ps.setArray(i, bkIdxArr);
 		
